@@ -1,9 +1,10 @@
 export const decodedValue = (arrayOfColor) => {
   const correspondigNumber = arrayOfColor
     .slice(0,2)
-    .map(color=> COLORS.indexOf(color)).join('')
+    .map(color=> COLORS.indexOf(color))
+    .join('')
   
-  return parseInt(correspondigNumber)
+  return Number(correspondigNumber)
 };
 
 const COLORS = [

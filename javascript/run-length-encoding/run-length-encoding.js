@@ -29,16 +29,16 @@ export const encode = (stringToEncode) => {
 };
 
 export const decode = (stringToDecode) => {
-  let number = '';
-  let finalResult = '';
+  if (stringToDecode.length === 0) { return ''; }
 
-  for (const character of stringToDecode) {
-    if (typeof (character) === 'number') { number += character.toString(); } else {
-      const result = number === '' ? character : character.repeat(number);
-      number = '';
-      finalResult += result;
-    }
-  }
+  const arrayOfEndoded = stringToDecode.match(/[0-9]*[a-zA-Z ]/g);
+  const interm = arrayOfEndoded.map((item) => {
+    if (item.length === 1) { return item; }
 
-  return finalResult;
+    const letter = item.charAt(item.length - 1);
+    const number = item.slice(0, item.length - 1);
+    return letter.repeat(Number(number));
+  });
+
+  return interm.join('');
 };
