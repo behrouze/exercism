@@ -17,6 +17,10 @@ describe('run-length encode a string', () => {
     expect(encode('AABBBCCCC')).toEqual('2A3B4C');
   });
 
+  test('encode string with no single characters', () => {
+    expect(encode('AABBBCCCCD')).toEqual('2A3B4CD');
+  });
+
   test('encode string with single characters mixed with repeated characters', () => {
     expect(encode('WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB')).toEqual('12WB12W3B24WB');
   });
