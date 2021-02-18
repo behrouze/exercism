@@ -1,10 +1,10 @@
 export const decodedValue = (arrayOfColor) => {
   const correspondigNumber = arrayOfColor
-    .slice(0,2)
-    .map(color=> COLORS.indexOf(color))
-    .join('')
-  
-  return Number(correspondigNumber)
+    .slice(0, 2)
+    .map((color) => COLORS.indexOf(color))
+    .join('');
+
+  return Number(correspondigNumber);
 };
 
 const COLORS = [
@@ -17,5 +17,5 @@ const COLORS = [
   'blue',
   'violet',
   'grey',
-  'white'
-]
+  'white',
+];

@@ -8,15 +8,17 @@ function Transcriptor() {
 
   const translateSingleNucleotide = (nucleotide) => {
     const res = transcript[nucleotide];
-    if (res !== undefined) { return res; }
+    if (res !== undefined) {
+      return res;
+    }
     throw new Error('Invalid input DNA.');
   };
 
-  this.toRna = nucleotides =>
-  nucleotides
-    .split('')
-    .map(letter => translateSingleNucleotide(letter))
-    .join('');
+  this.toRna = (nucleotides) =>
+    nucleotides
+      .split('')
+      .map((letter) => translateSingleNucleotide(letter))
+      .join('');
 }
 
 export default Transcriptor;
