@@ -7,34 +7,34 @@ export class Triangle {
     return array.reduce((acc, x) => acc + x, 0);
   }
 
-  splice(index) {
+  spliceSides(index) {
     return this.sides.filter((x, i) => i !== index);
   }
 
-  numberOfDistinct() {
+  get numberOfDistinctSides() {
     return [...new Set(this.sides)].length;
   }
 
-  isTriangleInequalityOk() {
-    let xxx = this.sides.filter((side, idx) => {
-      const otherSides = this.splice(idx);
+  get isTriangleInequalityOk() {
+    let sidesVerified = this.sides.filter((side, idx) => {
+      const otherSides = this.spliceSides(idx);
       return this.sum(otherSides) >= side;
     });
-    return xxx.length === 3;
+    return sidesVerified.length === 3;
   }
 
   get isEquilateral() {
     if (!this.sides[0]) return false;
-    return this.numberOfDistinct() === 1;
+    return this.numberOfDistinctSides === 1;
   }
 
   get isIsosceles() {
-    if (!this.isTriangleInequalityOk()) return false;
-    return this.numberOfDistinct() <= 2;
+    if (!this.isTriangleInequalityOk) return false;
+    return this.numberOfDistinctSides <= 2;
   }
 
   get isScalene() {
-    if (!this.isTriangleInequalityOk()) return false;
-    return this.numberOfDistinct() === 3;
+    if (!this.isTriangleInequalityOk) return false;
+    return this.numberOfDistinctSides === 3;
   }
 }
