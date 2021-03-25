@@ -1,9 +1,14 @@
-using System;
-
-public static class Leap
+﻿
+namespace Exercism.leap
 {
-    public static bool IsLeapYear(int year)
+    public static class Leap
     {
-        throw new NotImplementedException("You need to implement this function.");
+        private static bool IsMultipleOf(this int toBeDetermined, int multiple){
+            return toBeDetermined % multiple == 0;
+        }
+        public static bool IsLeapYear(int p)
+        {
+            return (p.IsMultipleOf(4) && !p.IsMultipleOf(100) || p.IsMultipleOf(400));
+        } 
     }
 }
